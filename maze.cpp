@@ -121,6 +121,9 @@ void Maze::PrintStuff() {
     if (!maze.empty() && maze.size() > 0 && maze[0].size() > 0) {
         for (int i = 0; i < maze.size(); i++) {
             for (int j = 0; j < maze[0].size(); j++)
-            { outFile << maze[i][j]<<"\t"; }
+            { outFile << maze[i][j]<<" "; }
             outFile << " " << std::endl;
-}}outFile.close();}
+        }
+    }
+    outFile.close();
+}
