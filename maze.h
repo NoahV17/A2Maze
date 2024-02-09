@@ -2,17 +2,18 @@
 #include <string>
 #include <stack>
 #include <utility>
+#include <set>
 
 #ifndef MYHEADER_H
 #define MYHEADER_H
 
 class Maze {
 public:
-    Maze(int seed, int rows, int cols);
+    Maze(int seed, int height, int width, std::string fileName);
     void generateMaze();
-    void GetNeighbors(int xloc, int yloc);
     void DeleteWall();
     void PrintStuff();
+    bool IsValid(int x, int y);
 
 private:
     int height;
@@ -21,13 +22,10 @@ private:
 	int xloc;
     int seed;
 	int visited;
-    int neighborCellNumber;
-
-    int  m_nPathWidth;
-    int  numberVisited;
+    std::string fileName;
     std::vector<std::vector<int> > maze;
     std::vector<std::pair<int, int> > neighbors;
-    std::vector<std::pair<int, int> > unvisitedCells;
+    std::set<std::pair<int, int> > visitedCellsList;
     std::stack<std::pair<int, int> > visitedCells;
 };
 
